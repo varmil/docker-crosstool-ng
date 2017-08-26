@@ -14,6 +14,7 @@ RUN apk update && \
         bison \
         build-base \
         curl \
+        file \
         flex \
         gawk \
         git \
