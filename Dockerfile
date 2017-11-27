@@ -1,10 +1,9 @@
 FROM alpine:3.5
-MAINTAINER Andrew Dunham <andrew@du.nham.ca>
 
 # Create user for build
-RUN mkdir /home/user && \
-    adduser -u 1001 -h /home/user -s /bin/sh -D user && \
-    chown -R user:user /home/user
+# RUN mkdir /home/user && \
+#     adduser -u 1001 -h /home/user -s /bin/sh -D user && \
+#     chown -R user:user /home/user
 
 # Install required packages
 RUN apk update && \
@@ -28,7 +27,8 @@ RUN apk update && \
         texinfo \
         unzip \
         wget \
-        xz
+        xz \
+        sudo
 
 # Build/install crosstool-ng
 RUN cd /root && \
@@ -43,5 +43,5 @@ RUN cd /root && \
     rm -rf crosstool-ng
 
 # All further commands are run as the build user
-WORKDIR /home/user
-USER user
+# WORKDIR /home/user
+# USER user
